@@ -11,3 +11,16 @@ C:\Users\Usuario\Documents\Visual Studio 2013\Projects\WindowsFormsApplication1\
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Microondas.MicroondasForm.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Programas.ProgramaForm.resources
 C:\Users\Usuario\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Programas.ListaDeProgramasForm.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Microondas.AquecendoForm.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Microondas.AquecimentoForm.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Programas.ListaDeProgramasForm.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Microondas.MicroondasForm.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Programas.ProgramaForm.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\Microondas\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

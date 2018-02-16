@@ -29,22 +29,34 @@ namespace WindowsFormsApplication1.Programas
                 boxDePotencia.ReadOnly = true;
                 boxDeTempo.ReadOnly = true;
                 boxDeInstrucoes.ReadOnly = true;
+                boxDeCaracter.ReadOnly = true;
+            }
+            else
+            {
+                boxDeNome.ReadOnly = false;
+                boxDePotencia.ReadOnly = false;
+                boxDeTempo.ReadOnly = false;
+                boxDeInstrucoes.ReadOnly = false;
+                boxDeCaracter.ReadOnly = false;
             }
             //seta o valor dos boxes com o programa passado em parametro
             boxDeNome.Text = programa.getNome();
             boxDeTempo.Text =  programa.getTempo().ToString();
             boxDePotencia.Text = programa.getPotencia().ToString();
             boxDeInstrucoes.Text = programa.getInstrucoes();
+            boxDeCaracter.Text =  programa.getCaracter().ToString();
         }
         //metodo usado para cadastrar novos programas
-        public ProgramaForm()
+        public ProgramaForm(ProgramaService programaService)
         {
             InitializeComponent();
+            this.programaService = programaService;
             //boxes são editaveis
             boxDeNome.ReadOnly = false;
             boxDePotencia.ReadOnly = false;
             boxDeTempo.ReadOnly = false;
             boxDeInstrucoes.ReadOnly = false;
+            boxDeCaracter.ReadOnly = false;
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -59,19 +71,33 @@ namespace WindowsFormsApplication1.Programas
 
         private void salvarButton_Click(object sender, EventArgs e)
         {
-            if (editar)
+            try
             {
-                programaService.editar(programa);
+                if (editar)
+                {
+                    programaService.editar(programa);
+                }
+                else
+                {
+                    programaService.salvar(
+                        new Programa(boxDeNome.Text.Trim(),
+                                    boxDeInstrucoes.Text.Trim(),
+                                    Int32.Parse(boxDePotencia.Text.Trim()),
+                                    Int32.Parse(boxDeTempo.Text.Trim()),
+                                    boxDeCaracter.Text.First()));
+                }
+
+            }catch(Exception saveE){
+                MessageBox.Show(saveE.Message);
             }
-            else
-            {
-                programaService.salvar(
-                    new Programa(boxDeNome.Text.Trim(),
-                                boxDeInstrucoes.Text.Trim(),
-                                Int32.Parse(boxDePotencia.Text.Trim()),
-                                Int32.Parse(boxDeTempo.Text.Trim()),
-                                boxDeCaracter.Text.First()));
-            }
+            this.Close();
+            new ListaDeProgramasForm(programaService.buscarProgramas()).Show();
+        }
+
+        private void cancelarButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new ListaDeProgramasForm(programaService.buscarProgramas()).Show();
         }
     }
 }

@@ -39,7 +39,15 @@ namespace WindowsFormsApplication1.Programas
 
         private void cadastrarButton_Click(object sender, EventArgs e)
         {
-            new ProgramaForm().Visible = true;
+            this.Close();
+            new ProgramaForm(programaService).Show();
+        }
+
+        private void programasListView_DoubleClick(object sender, EventArgs e)
+        {
+            Programa programa = programaService.buscarPorNome(programasListView.SelectedItems[0].Text.ToUpper());
+            this.Close();
+            new ProgramaForm(programaService,programa,true).Show();            
         }
     }
 }

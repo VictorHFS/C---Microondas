@@ -40,6 +40,7 @@
             this.programasListView.TabIndex = 0;
             this.programasListView.UseCompatibleStateImageBehavior = false;
             this.programasListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.programasListView.DoubleClick += new System.EventHandler(this.programasListView_DoubleClick);
             // 
             // cadastrarButton
             // 
@@ -51,14 +52,14 @@
             this.cadastrarButton.UseVisualStyleBackColor = true;
             this.cadastrarButton.Click += new System.EventHandler(this.cadastrarButton_Click);
             // 
-            // CadastroDeProgramasForm
+            // ListaDeProgramasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.cadastrarButton);
             this.Controls.Add(this.programasListView);
-            this.Name = "CadastroDeProgramasForm";
+            this.Name = "ListaDeProgramasForm";
             this.Text = "CadastroDeProgramasForm";
             this.Load += new System.EventHandler(this.CadastroDeProgramasForm_Load);
             this.ResumeLayout(false);

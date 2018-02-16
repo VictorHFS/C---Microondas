@@ -23,14 +23,27 @@ namespace WindowsFormsApplication1.Microondas
         }
         public void cadastrar(Programa novo)
         {
-            if(buscar(novo.getNome().ToUpper()) == null){
-               programas.Add(novo);
+            if(existe(novo.getNome().ToUpper())){
+                throw new Exception("Programa com esse nome ja existe.");
             }
             else
             {
-                throw new Exception("Programa com esse nome ja existe.");
+               programas.Add(novo);
             }
         }
+
+        private bool existe(string nome)
+        {
+            try
+            {
+                buscar(nome);
+            }catch(Exception e){
+                Console.Write(e.StackTrace);
+                return false;
+            }
+            return true;            
+        }
+
         public void remover(String nome)
         {
             foreach (Programa i in programas)
