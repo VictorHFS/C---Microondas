@@ -45,9 +45,38 @@ namespace WindowsFormsApplication1.Programas
 
         private void programasListView_DoubleClick(object sender, EventArgs e)
         {
-            Programa programa = programaService.buscarPorNome(programasListView.SelectedItems[0].Text.ToUpper());
-            this.Close();
-            new ProgramaForm(programaService,programa,true).Show();            
+            try
+            {
+                Programa programa = programaService.buscarPorNome(programasListView.SelectedItems[0].Text.ToUpper());
+                this.Close();
+                new ProgramaForm(programaService,programa,true).Show();            
+            }catch(Exception buscarException){
+                MessageBox.Show(
+                    buscarException.Message
+                    );
+            }
+        }
+
+        private void deletarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Programa programa = programaService.buscarPorNome(programasListView.SelectedItems[0].Text.ToUpper());
+                programaService.remover(programa);
+                atualizaListView();
+            }catch(Exception removerException){
+                MessageBox.Show(
+                    removerException.Message
+                    );
+            }
+        }
+        private void atualizaListView()
+        {
+            this.programasListView.Items.Clear();
+            foreach (Programa programa in this.programas.buscarTodos())
+            {
+                programasListView.Items.Add(programa.getNome());
+            }
         }
     }
 }

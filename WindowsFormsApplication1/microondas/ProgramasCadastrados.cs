@@ -51,9 +51,9 @@ namespace WindowsFormsApplication1.Microondas
                 if (i.getNome() == nome)
                 {
                     programas.Remove(i);
+                    break;                    
                 }
             }
-            throw new Exception("Programa não foi encontrado!");
         }
         public Programa buscar(String nome)
         {

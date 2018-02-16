@@ -14,10 +14,18 @@ namespace WindowsFormsApplication1.Microondas
     public partial class AquecimentoForm : Form
     {
         MicroondasController microondasController;
+        private string caminhoDoArquivo;
         public AquecimentoForm(MicroondasController microondasController)
         {
             InitializeComponent();
             this.microondasController = microondasController;
+        }
+
+        public AquecimentoForm(MicroondasController microondasController, string caminhoDoArquivo)
+        {
+            InitializeComponent();
+            this.microondasController = microondasController;
+            this.caminhoDoArquivo = caminhoDoArquivo;
         }
 
         private void AquecimentoForm_Load(object sender, EventArgs e)
@@ -31,10 +39,15 @@ namespace WindowsFormsApplication1.Microondas
             {
                 int segundos = Int32.Parse(this.tempoBox.Text.Trim());
                 int potencia = Int32.Parse(this.potenciaBox.Text.Trim());
-                MessageBox.Show(microondasController.aquecer(segundos,potencia));               
+                if(caminhoDoArquivo == null){
+                    microondasController.aquecer(segundos,potencia);
+                }
+                else
+                {
+                    microondasController.aquecer(segundos, potencia, caminhoDoArquivo);
+                }
             }catch(Exception exception){
-                MessageBox.Show("Favor verificar os dados preenchidos!");
-                Console.Out.Write(exception.StackTrace);
+                MessageBox.Show(exception.Message);                
             }
         }
 

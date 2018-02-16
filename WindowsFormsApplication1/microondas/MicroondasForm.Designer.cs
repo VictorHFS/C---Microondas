@@ -33,10 +33,12 @@
             this.boxDeEntrada = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.frangoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BotaoConsultar = new System.Windows.Forms.Button();
             this.BoxDeConsulta = new System.Windows.Forms.TextBox();
             this.entradaLabel = new System.Windows.Forms.Label();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.procuraArquivoButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +89,13 @@
             this.frangoToolStripMenuItem.Text = "Programas";
             this.frangoToolStripMenuItem.Click += new System.EventHandler(this.frangoToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItem1.Text = "Cadastrar Novo Programa";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // BotaoConsultar
             // 
             this.BotaoConsultar.Location = new System.Drawing.Point(12, 27);
@@ -113,18 +122,22 @@
             this.entradaLabel.TabIndex = 6;
             this.entradaLabel.Text = "Entrada";
             // 
-            // toolStripMenuItem1
+            // procuraArquivoButton
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            this.toolStripMenuItem1.Text = "Cadastrar Novo Programa";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.procuraArquivoButton.Location = new System.Drawing.Point(277, 140);
+            this.procuraArquivoButton.Name = "procuraArquivoButton";
+            this.procuraArquivoButton.Size = new System.Drawing.Size(75, 23);
+            this.procuraArquivoButton.TabIndex = 7;
+            this.procuraArquivoButton.Text = "Procurar";
+            this.procuraArquivoButton.UseVisualStyleBackColor = true;
+            this.procuraArquivoButton.Click += new System.EventHandler(this.procuraArquivoButton_Click);
             // 
             // MicroondasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 310);
+            this.Controls.Add(this.procuraArquivoButton);
             this.Controls.Add(this.entradaLabel);
             this.Controls.Add(this.BoxDeConsulta);
             this.Controls.Add(this.BotaoConsultar);
@@ -154,6 +167,8 @@
         private System.Windows.Forms.TextBox BoxDeConsulta;
         private System.Windows.Forms.Label entradaLabel;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button procuraArquivoButton;
     }
 }
 

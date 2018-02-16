@@ -30,6 +30,7 @@
         {
             this.programasListView = new System.Windows.Forms.ListView();
             this.cadastrarButton = new System.Windows.Forms.Button();
+            this.deletarButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // programasListView
@@ -52,11 +53,22 @@
             this.cadastrarButton.UseVisualStyleBackColor = true;
             this.cadastrarButton.Click += new System.EventHandler(this.cadastrarButton_Click);
             // 
+            // deletarButton
+            // 
+            this.deletarButton.Location = new System.Drawing.Point(179, 216);
+            this.deletarButton.Name = "deletarButton";
+            this.deletarButton.Size = new System.Drawing.Size(75, 23);
+            this.deletarButton.TabIndex = 2;
+            this.deletarButton.Text = "Deletar";
+            this.deletarButton.UseVisualStyleBackColor = true;
+            this.deletarButton.Click += new System.EventHandler(this.deletarButton_Click);
+            // 
             // ListaDeProgramasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.deletarButton);
             this.Controls.Add(this.cadastrarButton);
             this.Controls.Add(this.programasListView);
             this.Name = "ListaDeProgramasForm";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.ListView programasListView;
         private System.Windows.Forms.Button cadastrarButton;
+        private System.Windows.Forms.Button deletarButton;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApplication1.Service;
 using WindowsFormsApplication1.Programas;
+using System.Timers;
 
 namespace WindowsFormsApplication1.Microondas
 {
@@ -18,8 +19,8 @@ namespace WindowsFormsApplication1.Microondas
             microondas = new Microondas(entrada);
         }       
 
-        public String aquecimentoRapido()
-        {
+        public void aquecimentoRapido()
+        {           
             Programa programa;
             try
             {
@@ -28,37 +29,26 @@ namespace WindowsFormsApplication1.Microondas
                 Console.Write(e.StackTrace);
                 programa = programaService.programaPadrao();
             }
-            String textoDoAquecimento = "";
-            AquecendoForm aquecendo = new AquecendoForm();
-            aquecendo.Visible = true;
-            for (int i = programa.getTempo() * programa.getPotencia(); i >= 0; i--)
-            {
-                aquecendo.atualizaTexto(textoDoAquecimento);
-                textoDoAquecimento = textoDoAquecimento + programa.getCaracter();
-            }
-            textoDoAquecimento = "";
-            return "Aquecida!";
+            
+            AquecendoForm aquecendo = new AquecendoForm(programa);
+            aquecendo.Show();  
         }
-
-        public String aquecer(int tempo, int potencia)
-        {
-            String textoDoAquecimento = "";
+        public void aquecer(int tempo, int potencia)
+        {            
             Programa programa = new Programa("", "", potencia, tempo, '.');
-            AquecendoForm aquecendo = new AquecendoForm();
-            aquecendo.Visible = true;
-            for (int i = programa.getTempo() * programa.getPotencia(); i >= 0; i--)
-            {
-                aquecendo.atualizaTexto(textoDoAquecimento);
-                textoDoAquecimento = textoDoAquecimento + programa.getCaracter();
-            }
-            textoDoAquecimento = "";
-           
-            return "Aquecida!";
+            AquecendoForm aquecendo = new AquecendoForm(programa);
+            aquecendo.Show();  
         }
 
         public void atualizaEntrada(String entrada)
         {
             microondas.setEntrada(entrada);
+        }
+
+        public void aquecer(int segundos, int potencia, string caminhoDoArquivo)
+        {
+            Programa programa = new Programa("", "", potencia, segundos, '.');
+            new AquecendoForm(programa, caminhoDoArquivo).Show();  
         }
     }
 }

@@ -33,13 +33,37 @@ namespace WindowsFormsApplication1.Microondas
 
         private void aquecimento_Click(object sender, EventArgs e)
         {
-            new AquecimentoForm(microondasController).Visible = true;
+            try
+            {
+                try
+                {
+                    openFileDialog.OpenFile().Close();                    
+                    new AquecimentoForm(microondasController,openFileDialog.FileName).Show();
+                }catch(Exception abrirArquivoException){
+                    Console.Write(abrirArquivoException.Message);
+                    new AquecimentoForm(microondasController).Show();
+                }
+                
+            }
+            catch (Exception aquecimentoException)
+            {
+                MessageBox.Show(
+                    aquecimentoException.Message
+                    );
+            }
         }
 
         private void aquecimentoRapido_Click(object sender, EventArgs e)
         {
-            microondasController.atualizaEntrada(boxDeEntrada.Text);
-            MessageBox.Show(microondasController.aquecimentoRapido());                        
+            try
+            {
+                microondasController.atualizaEntrada(boxDeEntrada.Text);
+                microondasController.aquecimentoRapido(); 
+            }catch(Exception aquecimentoRapido){
+                MessageBox.Show(
+                    aquecimentoRapido.Message
+                    );
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -59,11 +83,20 @@ namespace WindowsFormsApplication1.Microondas
         private void BotaoConsultar_Click(object sender, EventArgs e)
         {
             //verifica se existe um programa cadastrado com o nome igual ao pesquisado na consulta
-            foreach(Programa programa in programas.buscarTodos()){
-                if(programa.getNome().ToUpper() == BoxDeConsulta.Text.ToUpper()){
-                    new ProgramaForm(programaService,programa,true).Visible = true;
-                    break;
+            try
+            {
+                foreach(Programa programa in programas.buscarTodos()){
+                    if(programa.getNome().ToUpper() == BoxDeConsulta.Text.ToUpper()){
+                        new ProgramaForm(programaService,programa,false).Visible = true;
+                        break;
+                    }
+                    else
+                    {
+                        throw new Exception("Programa não foi encontrado!");
+                    }
                 }
+            }catch(Exception consultaException){
+                MessageBox.Show(consultaException.Message);
             }
             
         }
@@ -75,6 +108,16 @@ namespace WindowsFormsApplication1.Microondas
         private void frangoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void procuraArquivoButton_Click(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "TXT|*.txt";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                boxDeEntrada.Text = openFileDialog.FileName;
+            }
         }
         
     }
